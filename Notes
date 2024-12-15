@@ -1,0 +1,7 @@
+1. Once you created the server and then listen it then it means it is available for the incoming requests.
+package.json : Contains Configuration of your project. It stores critical metadata about a project.
+node_modules : It contains all the source code of express js.
+dependency : Any package without your project not run is known as dependency.
+version : express '^4.19.0' [^(carot):If any new version comes in 4.0.0 series then it autmatically update to new version, 4:Major Fix and it might not backward compatible, 19:Minor feature release and it is backward compatible, 0:It is patch for bug fix and it is backward compatible.]
+package_lock.json : The package-lock.json is a lockfile that holds information about the dependencies or packages installed for a node.js project, including their exact version numbers.
+nodemon : Automatically refresh and restart the server.
