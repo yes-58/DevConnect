@@ -1,3 +1,5 @@
 1. What are dependencies?
 2. What is the use of -g while npm install.
 3. Difference between carat and tilds (^ vs ~) in versioning.
+4. How express Js handles requests behind the scene.
+5. What are middlewares.

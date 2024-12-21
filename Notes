@@ -1,7 +1,12 @@
 1. Once you created the server and then listen it then it means it is available for the incoming requests.
-package.json : Contains Configuration of your project. It stores critical metadata about a project.
-node_modules : It contains all the source code of express js.
-dependency : Any package without your project not run is known as dependency.
-version : express '^4.19.0' [^(carot):If any new version comes in 4.0.0 series then it autmatically update to new version, 4:Major Fix and it might not backward compatible, 19:Minor feature release and it is backward compatible, 0:It is patch for bug fix and it is backward compatible.]
-package_lock.json : The package-lock.json is a lockfile that holds information about the dependencies or packages installed for a node.js project, including their exact version numbers.
-nodemon : Automatically refresh and restart the server.
+2. package.json : Contains Configuration of your project. It stores critical metadata about a project.
+3. node_modules : It contains all the source code of express js here. It contains all the packages and subpackages on which express depends.
+4. dependency : Any package without your project not run is known as dependency.
+5. version : express '^4.19.0' [^(carot):If any new version comes in 4.0.0 series then it autmatically update to new version, 4:Major Fix and it might not backward compatible, 19:Minor feature release and it is backward compatible, 0:It is patch for bug fix and it is backward compatible.]
+6. package_lock.json : The package-lock.json is a lockfile that holds information about the dependencies or packages installed for a node.js project, including their exact version numbers.
+7. nodemon : Automatically refresh and restart the server.
+8. .gitignore : This file contains name of all the files and directories that we don't want to push on github.
+9. Note : We don't push node_modules on github because we already have package_lock.json and it contains all the packages with their version that are required for our project so to get node_modules then do `npm install`.
+10. Note : Whenever the request is coming then it matches the route from the top so the order in which routes are defined mattered. Order of writing a route matters alot.
+11. POST Request : For post requests, install the postman and make a workspace/collection and test the api call.
+
