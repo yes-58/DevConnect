@@ -56,6 +56,28 @@ app.get('/feed',async (req,res)=>{
     res.status(400).send("Something went wrong.")
   }
 })
+//Update User Data API
+app.patch('/user',async (req,res)=>{
+  const data = req.body
+  const userId = req.body.userId
+  try{
+    const user = await User.findByIdAndUpdate({_id:userId},data,{returnDocument:'before'})
+    res.send('User Updated Successfully.')
+  }catch(err){
+    res.status(400).send("Something went wrong.")
+  }
+})
+//Delete User API
+app.delete('/user',async (req,res)=>{
+  const userId = req.body.userId
+  try{
+    const user = await User.findByIdAndDelete(userId)
+    //const user = User.findByIdAndDelete({_id:userId})
+    res.send("User Deleted Successfully.")
+  }catch(err){
+    res.status(400).send("Something went wrong.")
+  }
+})
 
 connectToMongoDb()
   .then(() => {
