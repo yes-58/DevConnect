@@ -9,4 +9,7 @@
 9. Note : We don't push node_modules on github because we already have package_lock.json and it contains all the packages with their version that are required for our project so to get node_modules then do `npm install`.
 10. Note : Whenever the request is coming then it matches the route from the top so the order in which routes are defined mattered. Order of writing a route matters alot.
 11. POST Request : For post requests, install the postman and make a workspace/collection and test the api call.
+###### Diving Into APIs ######
+12. Here Post API is sending json Data using the Postman to server but our server not able to read the json data. So here we require the middleware and it will convert the incoming json data into javascript object and store it in req.body(). (express.json() is the middleware).
+13. app.use(<requesthandler()>) : This function runs on all the routes as we only pass the requesthandler and not the route.
 
