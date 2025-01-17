@@ -12,4 +12,7 @@
 ###### Diving Into APIs ######
 12. Here Post API is sending json Data using the Postman to server but our server not able to read the json data. So here we require the middleware and it will convert the incoming json data into javascript object and store it in req.body(). (express.json() is the middleware).
 13. app.use(<requesthandler()>) : This function runs on all the routes as we only pass the requesthandler and not the route.
+14. findOneAndUpdate({_id:userId},update_object,optional_object): This method is used to update the API.
 
+###### Sanitization and Validations on APIs #######
+To check the validations in update request then pass {runValidators: true} in findByIdAndUpdate.

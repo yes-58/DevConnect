@@ -4,3 +4,11 @@
 4. How express Js handles requests behind the scene.
 5. What are middlewares.
 6. Difference between JSON Object and Javascript Object.
+
+Schema Validations :
+Explore schematype options from the documention
+ - add required, unique, lowercase, min, minLength, trim
+ - Add default
+ - Create a custom validate function for gender
+ - Improve the DB schema - PUT all appropiate validations on each field in Schema
+ - Add timestamps to the userSchema

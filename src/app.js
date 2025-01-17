@@ -61,10 +61,10 @@ app.patch('/user',async (req,res)=>{
   const data = req.body
   const userId = req.body.userId
   try{
-    const user = await User.findByIdAndUpdate({_id:userId},data,{returnDocument:'before'})
+    const user = await User.findByIdAndUpdate({_id:userId},data,{returnDocument:'before',runValidators:true,})
     res.send('User Updated Successfully.')
   }catch(err){
-    res.status(400).send("Something went wrong.")
+    res.status(400).send("Update Failed"+err.message)
   }
 })
 //Delete User API
