@@ -56,11 +56,19 @@ app.get('/feed',async (req,res)=>{
     res.status(400).send("Something went wrong.")
   }
 })
-//Update User Data API
-app.patch('/user',async (req,res)=>{
+//Update User Data API with validations 
+app.patch('/user/:userId',async (req,res)=>{
   const data = req.body
-  const userId = req.body.userId
+  const userId = req.params?.userId;
   try{
+    const ALLOWED_UPDATES = ["photoURL", "gender", "age", "skills", "about"]
+    const isUpdateAllowed = Object.keys(data).every((k) =>ALLOWED_UPDATES.includes(k))
+    if(!isUpdateAllowed){
+      throw new Error("Update not allowed");
+    }
+    if (data?.skills.length > 10) {
+      throw new Error("Skills cannot be more than 10");
+    }
     const user = await User.findByIdAndUpdate({_id:userId},data,{returnDocument:'before',runValidators:true,})
     res.send('User Updated Successfully.')
   }catch(err){
