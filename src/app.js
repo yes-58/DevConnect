@@ -1,29 +1,36 @@
 const express = require('express');
 const connectToMongoDb = require("../config/database");
 const app = express(); //instance of expressjs application
+const {validateSignUpData} = require("../utils/validation");
+const bcrypt = require("bcrypt");
 
 const User = require("../models/user");
 
 app.use(express.json());
 
 app.post('/signup',async (req,res)=>{
-  // Creating a new instance of the User model
-//   const user = new User({
-//     firstName: "Sachin",
-//     lastName: "Tendulkar",
-//     emailId: "sachin@kohli.com",
-//     password: "sachin@123",
-//   });
 
-  const user = new User(req.body);
   try {
-    //Saving an instance in the user schema
+    //Validate Signup Data (Never Trust req.body)
+    validateSignUpData(req);
+    const { firstName, lastName, emailId, password } = req.body;
+    //Encrypt the password
+    const passwordHash = await bcrypt.hash(password,10);
+
+    //Create and Saving an instance in the user schema
+    const user = new User({
+      firstName,
+      lastName,
+      emailId,
+      password:passwordHash,
+    })
     await user.save();
     res.send("User Added successfully!");
   } catch (err) {
-    res.status(400).send("Error saving the user:" + err.message);
+    res.status(400).send("Error : " + err.message);
 }}
 )
+
 
 // Get User By email
 app.get('/user',async (req,res)=>{
